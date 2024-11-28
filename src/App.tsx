@@ -14,11 +14,6 @@ export default function App() {
 					url={`./audio/${album.folder}/${album.tracks[track]}`}
 				/>
 			</div>
-
-			{/* <img
-				src={`./audio/${album.folder}/${album.coverUrl}`}
-				alt=""
-			/> */}
     </div>
   );
 }
