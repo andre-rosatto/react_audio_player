@@ -114,7 +114,6 @@ export const albums: Album[] = [
 			'118.1.mp3', 
 			'119.1.mp3', '119.2.mp3', 
 			'120.1.mp3', 
-
 		]
 	}
 ];
