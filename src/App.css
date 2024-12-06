@@ -1,4 +1,6 @@
 .App .player-container {
   width: 100%;
+	max-width: 600px;
 	height: 2rem;
+	margin: auto;
 }
