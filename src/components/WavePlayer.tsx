@@ -20,6 +20,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 			.then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
 			.then(audioBuffer => {
 				setCurrentBuffer(audioBuffer);
+				setCurrentTime(0);
 			})
 			.catch((err) => {
 				setCurrentBuffer(null);
