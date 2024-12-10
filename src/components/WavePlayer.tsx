@@ -21,6 +21,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 			.then(audioBuffer => {
 				setCurrentBuffer(audioBuffer);
 				setCurrentTime(0);
+				setPlaying(false);
 			})
 			.catch((err) => {
 				setCurrentBuffer(null);
