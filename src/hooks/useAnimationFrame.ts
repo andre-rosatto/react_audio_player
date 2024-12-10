@@ -1,16 +1,14 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
 
 export default function useAnimationFrame(
 	updateFunction: () => void,
 	playing: boolean = true
 ) {
-	const update = useCallback(() => updateFunction(), [updateFunction]);
-
 	useEffect(() => {
 		let updateHandle: number;
 		const updateFrame = () => {
-			update();
+			updateFunction();
 			updateHandle = requestAnimationFrame(updateFrame);
 		}
 		if (playing) {
@@ -18,5 +16,5 @@ export default function useAnimationFrame(
 		}
 
 		return () => cancelAnimationFrame(updateHandle);
-	}, [playing]);
+	}, [playing, updateFunction]);
 }
