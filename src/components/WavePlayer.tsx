@@ -29,6 +29,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 
 	useEffect(() => {
 		audio.src = url;
+		setCurrentBuffer(null);
 		fetch(url)
 			.then(response => response.arrayBuffer())
 			.then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
@@ -66,10 +67,10 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 			alignItems: 'center',
 			padding: '0.15rem',
 			borderRadius: '100%',
-			border: '1px solid #bebebe',
+			border: `1px solid ${currentBuffer ? '#bebebe' : 'black'}`,
 			backgroundColor: 'transparent',
-			color: '#bebebe',
-			cursor: 'pointer'
+			color: currentBuffer ? '#bebebe' : 'black',
+			cursor: currentBuffer ? 'pointer' : 'not-allowed'
 		},
 		buttonIcon: {
 			width: '75%'
@@ -90,6 +91,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 	}
 
 	const handlePlayClick = (): void => {
+		if (!currentBuffer) return;
 		if (playing) {
 			audio.pause();
 		} else {
@@ -126,7 +128,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 				/>
 				<div style={styles.timeContainer}>
 					<span>{formatDuration(currentTime)}</span>
-					<span>{formatDuration(audio.duration)}</span>
+					<span>{formatDuration(audio.duration || 0)}</span>
 				</div>
 			</div>
 		</div>
