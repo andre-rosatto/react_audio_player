@@ -28,20 +28,28 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 	}, playing);
 
 	useEffect(() => {
+		let ignore = false;
 		audio.src = url;
 		setCurrentBuffer(null);
 		fetch(url)
 			.then(response => response.arrayBuffer())
 			.then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
 			.then(audioBuffer => {
+				if (ignore) return;
 				setCurrentBuffer(audioBuffer);
-				setCurrentTime(0);
-				setPlaying(false);
 			})
 			.catch((err) => {
 				setCurrentBuffer(null);
 				console.error(`Error loading audio from ${url}:\n${err}`);
+			})
+			.finally(() => {
+				setCurrentTime(0);
+				setPlaying(false);
 			});
+		
+		return () => {
+			ignore = true;
+		}
 	}, [url]);
 
 	const styles: {
