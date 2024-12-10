@@ -7,18 +7,22 @@
 	height: 100%;
 	width: 100%;
 	font-family: Arial, Helvetica, sans-serif;
+	color: #bebebe;
 }
 
-.App .player-container {
-  width: 100%;
-	max-width: 600px;
-	height: 3rem;
+.App .container {
+	width: 100%;
+	max-width: 800px;
 	margin: auto;
+}
+
+.App .player {
+	height: 3rem;
 	padding: 0.25rem;
 	box-sizing: border-box;
 }
 
-.App .tracks-container {
+.App .tracks {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 0.5rem;
@@ -43,7 +47,6 @@
 	list-style: none;
 	max-height: 4rem;
 	padding: 0.5rem .75rem;
-	color: #bebebe;
 	background-color: #2b2b2b;
 	cursor: pointer
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import WavePlayer from './components/WavePlayer';
+import WavePlayer, { formatDuration } from './components/WavePlayer';
 import { albums } from './albums';
 
 type Track = {
@@ -43,9 +43,7 @@ export default function App() {
 						const title = sliceBuffer(arrayBuffer, 125);
 						audioContext.decodeAudioData(arrayBuffer, audioBuffer => {
 							if (ignore) return;
-							const seconds = Math.floor(audioBuffer.duration % 60);
-							const minutes = Math.floor(audioBuffer.duration / 60);
-							const duration = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+							const duration = formatDuration(audioBuffer.duration);
 							setTracks(item => item.map((t, i) => i === idx ? {title, duration} : t));
 							if (idx < albums[albumIdx].tracks.length - 1) {
 								fetchAudioData(idx + 1);
@@ -66,13 +64,13 @@ export default function App() {
 
   return (
     <div className="App">
-			<div className="player-container">
+			<div className="container player">
 				<WavePlayer
 					url={`./audio/${albums[albumIdx].folder}/${albums[albumIdx].tracks[trackIdx]}`}
 				/>
 			</div>
 
-			<div className='tracks-container'>
+			<div className='container tracks'>
 				{/* album listing */}
 				<ul>
 					{albums.map((album, idx) =>

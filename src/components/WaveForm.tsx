@@ -7,6 +7,7 @@ interface WaveFormProps {
 	unplayedColor?: string;
 	playedColor?: string;
 	cursorColor?: string;
+	onClick?: (time: number) => void;
 }
 
 const filterData = (audioBuffer: AudioBuffer, samples: number): number[] => {
@@ -104,7 +105,8 @@ const WaveForm = ({
 	samples = 1000,
 	unplayedColor = 'black',
 	playedColor = 'blue',
-	cursorColor = 'blue'
+	cursorColor = 'blue',
+	onClick
 }: WaveFormProps) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -119,10 +121,18 @@ const WaveForm = ({
 		height: '100%'
 	}
 
+	const handleClick = (e: React.MouseEvent<HTMLCanvasElement>): void => {
+		if (!audioBuffer || !onClick) return;
+		const x = e.nativeEvent.offsetX;
+		const width = e.currentTarget.offsetWidth
+		onClick(audioBuffer.duration * x / width);
+	}
+
 	return (
 		<canvas
 			ref={canvasRef}
 			style={style}
+			onClick={handleClick}
 		></canvas>
 	)
 }
