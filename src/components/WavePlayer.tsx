@@ -85,7 +85,7 @@ export default function WavePlayer({ url }: WavePlayerProps) {
 			position: 'absolute',
 			bottom: '-0.5rem',
 			width: '100%',
-			textShadow: '0 1px black'
+			textShadow: '0 1px black, 0 -1px black, 1px 0 black, -1px 0 black'
 		}
 	}
 
