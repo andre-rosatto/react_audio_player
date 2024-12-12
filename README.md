@@ -6,6 +6,8 @@ To change the audio files, put your audio files in the ```public/audio``` folder
 
 The app automatically extracts the title of each track's metadata, as well as its duration. It also shows its waveform.
 
+You can see it in action <a href="https://englishaudioplayer.netlify.app">here</a>.
+
 <b>React Audio Player</b> was written in Typescript, using React.
 
 ## Tech Stack
