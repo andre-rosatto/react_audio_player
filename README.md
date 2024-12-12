@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# React Audio Player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<b>React Audio Player</b> is an audio player that runs on your browser. It came from the need for a browser audio player which I could use during my English classes. It comes with the audio files I use in the classes, but they can be changed.
 
-## Available Scripts
+To change the audio files, put your audio files in the ```public/audio``` folder, and change the ```src/albums.ts``` file appropriately.
 
-In the project directory, you can run:
+The app automatically extracts the title of each track's metadata, as well as its duration. It also shows its waveform.
 
-### `npm start`
+<b>React Audio Player</b> was written in Typescript, using React.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tech Stack
+<img height="50" src="https://github.com/user-attachments/assets/262eb873-1f66-40c3-9261-c05604451284" alt="TypeScript" title="TypeScript"/>
+<img height="50" src="https://github.com/user-attachments/assets/958af20f-198d-465a-b381-7578c6eb136f" alt="React" title="React"/>
+<img height="50" src="https://github.com/user-attachments/assets/6364c31a-da0f-4ee8-a69f-f33ad1f7c921" alt="HTML" title="HTML"/>
+<img height="50" src="https://github.com/user-attachments/assets/7c59f579-8108-4064-b758-5aa207f23e81" alt="CSS" title="CSS"/>
+<img height="50" src="https://github.com/user-attachments/assets/1f665f79-d1a3-464f-b4ac-3916b5d1a38b" alt="NPM" title="NPM"/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Scripts
+```npm start```: Starts the game in development mode and serves it on ```localhost:3000```
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```npm build```: Builds the game for production
